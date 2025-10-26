@@ -4,17 +4,32 @@ import matplotlib.pyplot as plt
 from core.base_strategy import BaseStrategy
 
 class MeanReversionStrategy(BaseStrategy):
-    def __init__(self, config):
+    def __init__(self, config, use_db=False):
         self.config = config
         self.window = config["mean_reversion"]["window"]
         self.threshold = config["mean_reversion"]["threshold"]
         self.symbols = config["symbols"]
+        self.use_db = use_db
 
     def download_data(self, start, end):
+        if self.use_db:
+            from scripts.db_loader import DBLoader
+            loader = DBLoader()
+            prices = loader.load_from_db(self.symbols, start, end)
+            if prices is not None and not prices.empty:
+                print("MeanReversion: 從 PostgreSQL 載入資料")
+                prices.index = pd.to_datetime(prices.index)
+                return prices
+            print("MeanReversion: DB 無資料，切換 yfinance")
+        
         import yfinance as yf
         closes = []
         for s in self.symbols:
-            df = yf.download(s, start=start, end=end, progress=False)
+            df = yf.download(s, start=start, end=end, progress=False, auto_adjust=False)
+            if df.empty or 'Close' not in df.columns:
+                continue
+            if isinstance(df.columns, pd.MultiIndex):
+                df.columns = df.columns.droplevel(1)
             close_series = df['Close']
             close_series.name = s
             closes.append(close_series)
@@ -47,8 +62,8 @@ class MeanReversionStrategy(BaseStrategy):
 
         plt.figure(figsize=(12,6))
         cum_ret.plot()
-        plt.title(f"Mean Reversion (Return: {total:.2%}, MDD: {mdd:.2%})")
-        plt.savefig("reports/phase3_equity_curve.png")
+        plt.title(f"Mean Reversion (DB: {self.use_db}) Return: {total:.2%}, MDD: {mdd:.2%}")
+        plt.savefig("reports/phase5_mean_reversion_db_curve.png")
         plt.close()
 
         return {"total_return": total, "max_drawdown": mdd}
