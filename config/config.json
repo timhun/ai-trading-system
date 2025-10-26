@@ -1,0 +1,14 @@
+{
+  "symbols": ["QQQ", "NVDA", "TSLA", "AAPL", "MSFT"],
+  "start_date": "2023-01-01",
+  "end_date": "2023-12-31",
+  "strategy": "momentum",
+  "mean_reversion": {
+    "window": 20,
+    "threshold": 2.0
+  },
+  "momentum": {
+    "window": 60,
+    "hold_days": 20
+  }
+}
