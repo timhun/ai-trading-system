@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Reports（每日生成）
+reports/*.png
+reports/*.md
+reports/*.json
+
+# Config（敏感資料）
+config/*.json
+
+# IDE
+.vscode/
+.idea/

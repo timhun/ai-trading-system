@@ -1,4 +1,4 @@
-﻿import alpaca_trade_api as tradeapi
+import alpaca_trade_api as tradeapi
 import pandas as pd
 import json
 from datetime import datetime
