@@ -11,3 +11,8 @@ outputs/
 *.mp3
 *.png
 *.log
+assets/piper/*.onnx
+assets/piper/*.json
+outputs/audio/*.wav
+# Allow podcast audio files
+!outputs/audio/*.mp3
