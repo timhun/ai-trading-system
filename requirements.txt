@@ -1,0 +1,10 @@
+python-dotenv==1.0.1
+psycopg2-binary==2.9.9
+requests==2.32.3
+beautifulsoup4==4.12.3
+pytz==2024.2
+pandas==2.2.3
+tqdm==4.66.5
+youtube-transcript-api==0.6.2
+yt-dlp==2025.1.26
+ollama

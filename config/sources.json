@@ -1,0 +1,42 @@
+[
+  {
+    "source_id": "ryan_trading_channel",
+    "title": "Ryan - Day Trading QQQ",
+    "type": "youtube",
+    "priority": 0.9,
+    "category_hint": "短線/動能",
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  {
+    "source_id": "BrandonTrades",
+    "title": "How To Trade $SPY & $QQQ Like A Pro",
+    "type": "youtube",
+    "priority": 0.8,
+    "category_hint": "長線/資產配置",
+    "url": "https://www.youtube.com/watch?v=G8t3V_CUkS8"
+  },
+  {
+    "source_id": "quant_blog_sample",
+    "title": "Quant Insights Blog",
+    "type": "web",
+    "priority": 0.7,
+    "category_hint": "量化/風險控管",
+    "url": "https://www.example.com/"
+  },
+  {
+    "source_id": "Limitless Podcast",
+    "title": "The DeepSeek Trading Bot Doubled Its Money. Now You Can Use Its Strategies",
+    "type": "youtube",
+    "priority": 0.9,
+    "category_hint": "量化/風險控管",
+    "url": "https://www.youtube.com/watch?v=-j9kVKPULko"
+  },
+  {
+    "source_id": "Ross Cameron - Warrior Trading",
+    "title": "How I Made $1,000,000 in 51 Days of Day Trading (Full Training)",
+    "type": "youtube",
+    "priority": 0.9,
+    "category_hint": "量化/風險控管",
+    "url": "https://www.youtube.com/watch?v=m5zu_X-_51I"
+  }
+]
